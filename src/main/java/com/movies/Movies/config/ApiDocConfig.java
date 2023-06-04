@@ -11,7 +11,7 @@ import java.util.Collections;
 @Configuration
 public class ApiDocConfig {
     @Bean
-    private OpenAPI usersMicroserviceOpenAPI() {
+    public OpenAPI usersMicroserviceOpenAPI() {
         return new OpenAPI()
                 .info(new Info().title("Movie Thing!").description("This is a movie thing!").version("54.99"));
     }
