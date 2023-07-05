@@ -1,7 +1,11 @@
 package com.movies.Movies.repository;
 
+import com.movies.Movies.dataTransferObjects.MovieResults;
+import com.movies.Movies.dataTransferObjects.Result;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.reactive.function.client.WebClient;
+
+import java.util.List;
 
 @Repository
 public class LocRepository {
@@ -15,7 +19,7 @@ public class LocRepository {
                 .build();
     }
 
-    public String getResults(String query){
+    public List<Result> getResults(String query){
 
         return webClient.get()
                 .uri(uriBuilder -> uriBuilder
@@ -25,8 +29,9 @@ public class LocRepository {
                         .build()
                 )
                 .retrieve()
-                .bodyToMono(String.class)
-                .block();
+                .bodyToMono(MovieResults.class)
+                .block()
+                .getResults();
 
     }
 

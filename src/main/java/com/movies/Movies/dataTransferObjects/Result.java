@@ -3,13 +3,10 @@ package com.movies.Movies.dataTransferObjects;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.Generated;
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import com.fasterxml.jackson.annotation.*;
+
+import javax.annotation.processing.Generated;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -53,8 +50,6 @@ public class Result {
     private String releaseDate;
     @JsonProperty("title")
     private String title;
-    @JsonProperty("video")
-    private Boolean video;
     @JsonProperty("vote_average")
     private Double voteAverage;
     @JsonProperty("vote_count")
@@ -170,16 +165,6 @@ public class Result {
     @JsonProperty("title")
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    @JsonProperty("video")
-    public Boolean getVideo() {
-        return video;
-    }
-
-    @JsonProperty("video")
-    public void setVideo(Boolean video) {
-        this.video = video;
     }
 
     @JsonProperty("vote_average")
