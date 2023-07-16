@@ -19,6 +19,10 @@ public class LocRepository {
                 .build();
     }
 
+    public LocRepository(WebClient webClient) {
+        this.webClient = webClient;
+    }
+
     public List<Result> getResults(String query){
 
         return webClient.get()
